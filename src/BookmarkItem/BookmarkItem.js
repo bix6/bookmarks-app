@@ -18,10 +18,9 @@ function deleteBookmarkRequest(bookmarkId, callback) {
           throw error;
         });
       }
-      return res.json();
+      return res;
     })
     .then(data => {
-      console.log({data});
       callback(bookmarkId);
     })
     .catch(error => {
@@ -57,7 +56,8 @@ export default function BookmarkItem(props) {
             >
               Delete
             </button>
-            <Link to={`/edit/${props.id}`}>Edit Bookmark</Link>
+            {' '}
+            <Link to={`/edit/${props.id}`}>Edit</Link>
           </div>
         </li>
       )}
