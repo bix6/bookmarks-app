@@ -2,37 +2,19 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
+import BookmarksContext from './BookmarksContext';
 import Nav from './Nav/Nav';
 import config from './config';
 import './App.css';
-
-const bookmarks = [
-  // {
-  //   id: 0,
-  //   title: 'Google',
-  //   url: 'http://www.google.com',
-  //   rating: '3',
-  //   desc: 'Internet-related services and products.'
-  // },
-  // {
-  //   id: 1,
-  //   title: 'Thinkful',
-  //   url: 'http://www.thinkful.com',
-  //   rating: '5',
-  //   desc: '1-on-1 learning to accelerate your way to a new high-growth tech career!'
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Github',
-  //   url: 'http://www.github.com',
-  //   rating: '4',
-  //   desc: 'brings together the world\'s largest community of developers.'
-  // }
-];
+import EditBookmark from './EditBookmark/EditBookmark';
 
 class App extends Component {
   state = {
+<<<<<<< HEAD
     bookmarks,
+=======
+    bookmarks: [],
+>>>>>>> context-startingpoint
     error: null,
   };
 
@@ -48,6 +30,27 @@ class App extends Component {
       bookmarks: [ ...this.state.bookmarks, bookmark ],
     })
   }
+
+  deleteBookmark = bookmarkId => {
+    console.log(bookmarkId);
+    const newBookmarks = this.state.bookmarks.filter(bm =>
+      bm.id !== bookmarkId 
+    );
+    this.setState({
+      bookmarks: newBookmarks
+    });
+  }
+
+  editBookmark = (bookmark) => {
+      const newBookmarks = this.state.bookmarks.map(b => 
+          (b.id === bookmark.id)
+            ? bookmark
+            : b
+      );
+      this.setState({
+          bookmarks: newBookmarks
+      });
+  };
 
   componentDidMount() {
     fetch(config.API_ENDPOINT, {
@@ -68,6 +71,7 @@ class App extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { bookmarks } = this.state
     return (
       <main className='App'>
@@ -91,6 +95,34 @@ class App extends Component {
               />}
           />
         </div>
+=======
+    const contextValue = {
+      bookmarks: this.state.bookmarks,
+      addBookmark: this.addBookmark,
+      deleteBookmark: this.deleteBookmark,
+      editBookmark: this.editBookmark,
+    }
+    return (
+      <main className='App'>
+        <h1>Bookmarks!</h1>
+        <BookmarksContext.Provider value={contextValue}>
+          <Nav />
+          <div className='content' aria-live='polite'>
+            <Route
+              path='/add-bookmark'
+              component={AddBookmark}
+            />
+            <Route
+              exact path='/'
+              component={BookmarkList}
+            />
+            <Route
+                path='/edit/:id'
+                component={EditBookmark}
+            />
+          </div>
+        </BookmarksContext.Provider>
+>>>>>>> context-startingpoint
       </main>
     );
   }
