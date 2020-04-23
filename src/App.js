@@ -6,6 +6,7 @@ import BookmarksContext from './BookmarksContext';
 import Nav from './Nav/Nav';
 import config from './config';
 import './App.css';
+import EditBookmark from './EditBookmark/EditBookmark';
 
 class App extends Component {
   state = {
@@ -36,6 +37,17 @@ class App extends Component {
     });
   }
 
+  editBookmark = (bookmark) => {
+      const newBookmarks = this.state.bookmarks.map(b => 
+          (b.id === bookmark.id)
+            ? bookmark
+            : b
+      );
+      this.setState({
+          bookmarks: newBookmarks
+      });
+  };
+
   componentDidMount() {
     fetch(config.API_ENDPOINT, {
       method: 'GET',
@@ -58,7 +70,8 @@ class App extends Component {
     const contextValue = {
       bookmarks: this.state.bookmarks,
       addBookmark: this.addBookmark,
-      deleteBookmark: this.deleteBookmark
+      deleteBookmark: this.deleteBookmark,
+      editBookmark: this.editBookmark,
     }
     return (
       <main className='App'>
@@ -73,6 +86,10 @@ class App extends Component {
             <Route
               exact path='/'
               component={BookmarkList}
+            />
+            <Route
+                path='/edit/:id'
+                component={EditBookmark}
             />
           </div>
         </BookmarksContext.Provider>

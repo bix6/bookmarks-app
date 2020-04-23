@@ -4,7 +4,6 @@ import BookmarksContext from '../BookmarksContext';
 import './BookmarkList.css'
 
 class BookmarkList extends Component {
-  // Think this can be deleted?
   static defaultProps = {
     bookmarks: []
   };
