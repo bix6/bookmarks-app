@@ -9,11 +9,7 @@ it('renders without crashing', () => {
     <BrowserRouter>
       <Nav />
     </BrowserRouter>,
-<<<<<<< HEAD
-    div);
-=======
     div
   );
->>>>>>> context-startingpoint
   ReactDOM.unmountComponentAtNode(div);
 });

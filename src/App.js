@@ -10,11 +10,7 @@ import EditBookmark from './EditBookmark/EditBookmark';
 
 class App extends Component {
   state = {
-<<<<<<< HEAD
-    bookmarks,
-=======
     bookmarks: [],
->>>>>>> context-startingpoint
     error: null,
   };
 
@@ -71,31 +67,6 @@ class App extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    const { bookmarks } = this.state
-    return (
-      <main className='App'>
-        <h1>Bookmarks!</h1>
-        <Nav />
-        <div className='content' aria-live='polite'>
-          <Route
-            path='/add-bookmark'
-            render={({ history }) => {
-              return <AddBookmark
-                onAddBookmark={this.addBookmark}
-                onClickCancel= {() => history.push('/')}
-              />
-            }}
-          />
-          <Route
-            exact path = '/'
-            render={() =>
-              <BookmarkList
-                bookmarks={bookmarks}
-              />}
-          />
-        </div>
-=======
     const contextValue = {
       bookmarks: this.state.bookmarks,
       addBookmark: this.addBookmark,
@@ -122,7 +93,6 @@ class App extends Component {
             />
           </div>
         </BookmarksContext.Provider>
->>>>>>> context-startingpoint
       </main>
     );
   }
