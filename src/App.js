@@ -7,6 +7,7 @@ import Nav from './Nav/Nav';
 import config from './config';
 import './App.css';
 import EditBookmark from './EditBookmark/EditBookmark';
+import Rating from './Rating/Rating';
 
 class App extends Component {
   state = {
@@ -75,6 +76,7 @@ class App extends Component {
     }
     return (
       <main className='App'>
+          <Rating value={4}></Rating>
         <h1>Bookmarks!</h1>
         <BookmarksContext.Provider value={contextValue}>
           <Nav />
