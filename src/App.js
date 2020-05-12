@@ -76,7 +76,6 @@ class App extends Component {
     }
     return (
       <main className='App'>
-          <Rating value={4}></Rating>
         <h1>Bookmarks!</h1>
         <BookmarksContext.Provider value={contextValue}>
           <Nav />

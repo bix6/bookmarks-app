@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "bookmarks-app",
+    "route": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+}
