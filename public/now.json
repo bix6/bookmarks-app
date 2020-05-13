@@ -1,4 +1,5 @@
 {
     "version": 2,
-    "name": "bookmarks-app"
+    "name": "bookmarks-app",
+    "alias": "my-bookmarks-app"
 }
