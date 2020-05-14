@@ -7,7 +7,6 @@ import Nav from './Nav/Nav';
 import config from './config';
 import './App.css';
 import EditBookmark from './EditBookmark/EditBookmark';
-import Rating from './Rating/Rating';
 
 class App extends Component {
   state = {
