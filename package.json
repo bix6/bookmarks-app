@@ -8,7 +8,9 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "vercel": "^19.0.1"
+    "serialize-javascript": "^2.1.1",
+    "vercel": "^19.0.1",
+    "webpack-dev-server": "^3.1.11"
   },
   "scripts": {
     "start": "react-scripts start",
